@@ -1,3 +1,4 @@
+// require('chartist-plugin-legend');
 console.log("working");
 
 // var temperature = [];
@@ -17,13 +18,25 @@ var options = {
     top: 40,
     bottom: 100,
   },
+  showPoint: false,
   showArea: true,
   high: 80,
   low: 0,
-  axisX: { labelInterpolationFnc: function skipLabels(value, index){
-    return index % 15 === 0 ? value : null; 
-  } },
-  axisY:{scaleMinSpace: 25},
+  axisX: {
+    labelInterpolationFnc: function skipLabels(value, index) {
+      return index % 15 === 0 ? value : null;
+    },
+  },
+  axisY: {
+    scaleMinSpace: 25,
+    position: "dual",
+  },
+  // plugins: [
+  //   Chartist.plugins.legend({
+  //     legendNames: ["Custom title", "Another one"],
+  //     position: "bottom",
+  //   }),
+  // ],
 
   // scales: {
   //   y: { position: "start" },
@@ -39,11 +52,11 @@ async function updateData() {
   let live_temp = document.getElementById("live_temp");
   let live_hum = document.getElementById("live_hum");
 
-
   console.log(valueFromServer);
-  chart.update(valueFromServer);
   live_temp.innerHTML = valueFromServer.series[0].at(-1);
   live_hum.innerHTML = valueFromServer.series[1].at(-1);
+  
+  chart.update(valueFromServer);
 
   setTimeout(async () => {
     await updateData();

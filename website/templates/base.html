@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
   </head>
   <style>
+    
     .ct-series-a .ct-line {
       stroke: red;
     }
@@ -81,6 +82,7 @@
       color: #4d4d4d;
     }
 
+
   
   </style>
   <body>
@@ -96,13 +98,13 @@
     <div id="tabela" class="container">
       <div id="row1" class="row">
         <div class="col">
-          <p class="text-center">Temperature</p>
-          <p id="live_hum" class="text-center"></p>
+          <p class="text-center font-weight-bold text-danger">Temperature [°C]</p>
+          <p id="live_temp" class="text-center"></p>
 
         </div>
         <div class="col">
-          <p class="text-center">Humidity</p>
-          <p id="live_temp" class="text-center"></p>
+          <p class="text-center font-weight-bold text-primary">Humidity [%]</p>
+          <p id="live_hum" class="text-center"></p>
 
         </div>
         
@@ -114,6 +116,7 @@
     </div>
 
     <div id="chart" class="ct-chart ct-perfect-fourth"></div>
+    
 
     
     <script
@@ -134,9 +137,9 @@
   </body>
 
   <script
-    type="text/javascript"
-    src="{{ url_for('static', filename='live_data.js') }}"
-  ></script>
+  type="text/javascript"
+  src="{{ url_for('static', filename='chartist-plugin-legend.js') }}"
+></script>
   <script
   type="text/javascript"
   src="{{ url_for('static', filename='index.js') }}"
