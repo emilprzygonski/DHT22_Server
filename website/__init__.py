@@ -26,7 +26,7 @@ def run_application():
     
     read_from_dht_process.start()    
     app.run(debug=True, 
-            host='10.0.1.207', 
+            host='192.168.0.27', 
             threaded=True, 
             use_reloader=False)
     # read_from_dht_process.join()
