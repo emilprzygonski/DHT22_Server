@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  </head>
+  <style>
+    
+    .ct-series-a .ct-line {
+      stroke: red;
+    }
+
+    .ct-series-a .ct-point {
+      stroke: red;
+    }
+
+    .ct-series-a .ct-area {
+      fill: red;
+    }
+
+    .ct-series-b .ct-line {
+      stroke: blue;
+    }
+
+    .ct-series-b .ct-point {
+      stroke: blue;
+    }
+
+    .ct-series-b .ct-area {
+      fill: blue;
+    }
+    svg.ct-chart-bar,
+    svg.ct-chart-line {
+      overflow: visible;
+    }
+    .ct-label.ct-label.ct-horizontal.ct-end {
+      position: relative;
+      justify-content: flex-end;
+      text-align: right;
+      transform-origin: 100% 0;
+      transform: translate(-100%) rotate(-45deg);
+      white-space: nowrap;
+    }
+
+    #chart{
+      border-radius: 30px;
+      background-color: WhiteSmoke;
+      padding-top: 400px;
+      max-width:80%;
+      max-height:700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #tabela{
+      margin-left: auto;
+      margin-right: auto;
+      background:WhiteSmoke;
+      border-radius: 30px;
+      color: #4d4d4d;
+    }
+
+
+
+    body{
+      padding: 40px;
+      font-family:arial;
+    }
+
+    #jubo{
+      background:#87CEFA;
+      border-radius: 30px;
+      color: #4d4d4d;
+    }
+
+
+  
+  </style>
+  <body>
+    <div id="jubo" class="jumbotron">
+
+    
+      <h1 class="display-4">Temperature and Humidity Chart</h2>
+      <p class="lead">Hello, this is live chart describing temperature and humidity!</p>
+      <hr class="my-4">
+    </div>
+
+    
+    <div id="tabela" class="container">
+      <div id="row1" class="row">
+        <div class="col">
+          <p class="text-center font-weight-bold text-danger">Temperature [°C]</p>
+          <p id="live_temp" class="text-center"></p>
+
+        </div>
+        <div class="col">
+          <p class="text-center font-weight-bold text-primary">Humidity [%]</p>
+          <p id="live_hum" class="text-center"></p>
+
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="mt-2 col-md-12"> 
+      <!-- TODO -->
+    </div>
+
+    <div id="chart" class="ct-chart ct-perfect-fourth"></div>
+    
+
+    
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+
+  <script
+  type="text/javascript"
+  src="{{ url_for('static', filename='chartist-plugin-legend.js') }}"
+></script>
+  <script
+  type="text/javascript"
+  src="{{ url_for('static', filename='index.js') }}"
+></script>
+</html>
