@@ -14,9 +14,6 @@ def get_dht_data(state_shared):
             hum = dhtDevice.humidity
 
             state_shared.add_data(temp, hum)
-
-            # print("dupa")
-            # print(state_shared.get_data())
             time.sleep(60)
         except RuntimeError as error:
             print(error.args[0])

@@ -12,11 +12,6 @@ def init_routes(shared_state):
 
     @views.route('/data', methods=['GET'])
     def data():
-        val_temp = round(random.uniform(20,30),1)
-        val_hum = round(random.uniform(40,60),1)
-        # state.add_data(round(random.uniform(20,30),1), round(random.uniform(40,60),1))
-
-        print({'data': shared_state.get_data()})
         return jsonify(shared_state.get_data())
 
 

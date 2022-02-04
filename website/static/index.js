@@ -49,13 +49,21 @@ var chart = new Chartist.Line(".ct-chart", data, options);
 
 async function updateData() {
   const valueFromServer = await makeGetRequest("data");
+  let live_time = document.getElementById("live_time");
   let live_temp = document.getElementById("live_temp");
   let live_hum = document.getElementById("live_hum");
 
-  console.log(valueFromServer);
-  live_temp.innerHTML = valueFromServer.series[0].at(-1);
-  live_hum.innerHTML = valueFromServer.series[1].at(-1);
-  
+  // console.log(valueFromServer);
+
+  var last_index = valueFromServer.series[0].length - 1
+
+  live_time.innerHTML  = valueFromServer.labels[last_index];
+  live_temp.innerHTML  = valueFromServer.series[0][last_index];
+  live_hum.innerHTML  = valueFromServer.series[1][last_index];
+
+  // alert(live_hum.innerHTML);
+
+
   chart.update(valueFromServer);
 
   setTimeout(async () => {
