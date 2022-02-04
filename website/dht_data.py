@@ -1,27 +1,14 @@
 import random
 import time
 
-import board
-import adafruit_dht
-
 
 def get_dht_data(state_shared):
-    dhtDevice = adafruit_dht.DHT22(board.D4, use_pulseio=False)
     while True:
-        try:
+        temp = round(random.uniform(20, 30), 1)
 
-            temp = dhtDevice.temperature
-            hum = dhtDevice.humidity
+        hum = round(random.uniform(40,    60), 1)
+        state_shared.add_data(temp, hum)
 
-            state_shared.add_data(temp, hum)
-
-            # print("dupa")
-            # print(state_shared.get_data())
-            time.sleep(60)
-        except RuntimeError as error:
-            print(error.args[0])
-            time.sleep(0.5)
-            continue
-        except Exception as error:
-            dhtDevice.exit()
-            raise error
+        # print("dupa")
+        # print(state_shared.get_data())
+        time.sleep(1)
