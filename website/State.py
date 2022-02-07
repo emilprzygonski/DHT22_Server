@@ -1,6 +1,6 @@
 import time
 import calendar
-from datetime import date
+from datetime import date, datetime, timedelta
 
 
 class State():
@@ -28,7 +28,11 @@ class State():
     def add_data_time(self):
         my_date = date.today()
         week_day = calendar.day_name[my_date.weekday()]
-        y_label = week_day + ' ' + time.strftime("%H:%M")
+
+        current_time = (datetime.now() + timedelta(hours=1)).strftime("%H:%M")
+
+
+        y_label = week_day + ' ' + current_time
         handler = self.data['labels']
         if len(handler) >= self.max_length:
             handler.pop(0)
