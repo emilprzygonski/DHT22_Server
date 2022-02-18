@@ -55,12 +55,24 @@ async function updateData() {
 
   // console.log(valueFromServer);
 
-  var last_index = valueFromServer.series[0].length - 1
+  var last_index = valueFromServer.series[0].length - 1;
 
-  live_time.innerHTML  = valueFromServer.labels[last_index];
-  live_temp.innerHTML  = valueFromServer.series[0][last_index];
-  live_hum.innerHTML  = valueFromServer.series[1][last_index];
-  
+  live_time.innerHTML = valueFromServer.labels[last_index];
+  live_temp.innerHTML = valueFromServer.series[0][last_index]+" "+"°C";
+  live_hum.innerHTML = valueFromServer.series[1][last_index]+" "+"HR";
+
+  var t = new Date().getHours();
+  if (t < 10) {
+    document.body.style.backgroundColor = "white";
+  } else if (t < 16) {
+    // document.body.style.backgroundColor = "rgb(255, 148, 77)";
+    document.body.style.backgroundColor = "white";
+  } else {
+    // document.body.style.backgroundColor = "#4d4d4d";
+    document.body.style.backgroundColor = "white";
+
+  }
+
   chart.update(valueFromServer);
 
   setTimeout(async () => {
