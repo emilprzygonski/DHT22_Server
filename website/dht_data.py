@@ -9,6 +9,4 @@ def get_dht_data(state_shared):
         hum = round(random.uniform(40,    60), 1)
         state_shared.add_data(temp, hum)
 
-        # print("dupa")
-        # print(state_shared.get_data())
         time.sleep(1)
