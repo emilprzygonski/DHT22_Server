@@ -1,4 +1,4 @@
-# DHT22 Server
+# DHT22 Server - in progress
 
 ## General information
 Welcome to my small project! The main goal is to read temperature and relative humidity, save it and then draw a diagram.
